@@ -1,0 +1,4 @@
+from os import getenv
+
+SLACK_TOKEN = getenv('SLACK_BOT_TOKEN')
+VERIFICATION_TOKEN = getenv('VERIFICATION_TOKEN')

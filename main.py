@@ -7,12 +7,10 @@ import config
 app = Flask(__name__)
 slack_client = WebClient(token=config.SLACK_TOKEN)
 
-@app.route('/slash', methods=['POST'])
-def slash():
+@app.route('/emoji-gacha', methods=['POST'])
+def emoji_gacha():
     if request.form['token'] == config.VERIFICATION_TOKEN:
-        res = slack_client.api_call(
-            api_method='emoji.list'
-        )
+        res = slack_client.emoji_list()
         emoji = choice(list(res['emoji'].keys()))
 
         payload = {
